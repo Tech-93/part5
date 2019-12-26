@@ -1,12 +1,13 @@
 import React from 'react'
 import {
-  render, waitForElement
+  render, waitForElement, cleanup
 } from '@testing-library/react'
 jest.mock('./services/blogs')
 import App from './App'
 
 
 describe('<App />', () => {
+  afterEach(cleanup)
   test('if no user logged, blogs are not rendered', async () => {
     const component = render(
       <App />
@@ -37,14 +38,17 @@ describe('<App />', () => {
     component.rerender(<App />)
 
     await waitForElement(
-      () => component.getByText('login')
+      () => component.container.querySelector('.blogs')
     )
+
+
+
 
 
 
     const blogs = component.container.querySelectorAll('.blogs')
     console.log(blogs)
-    expect(blogs.length).toBe(3)
+    expect(blogs).toHaveLength(2)
 
 
   })

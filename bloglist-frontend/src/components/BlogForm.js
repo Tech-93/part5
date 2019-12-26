@@ -23,6 +23,10 @@ const BlogForm = (props) => {
     const response = await blogService.create(blogObject)
     props.setBlogs(props.blogs.concat(response))
 
+    newTitle.reset()
+    newAuthor.reset()
+    newUrl.reset()
+
     props.setMessage (
       'a new blog ' + newTitle.value + ' by ' + newAuthor.value + ' added'
     )

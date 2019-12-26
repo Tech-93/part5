@@ -5,10 +5,11 @@ const blogs = [
     title: 'Bonnfire',
     author: 'Gideon',
     likes: 39,
-    user: {
+    user: [{
       username: 'fartface',
+      name: 'Amanda',
       id: '5dd03f94c380a51c59b26310'
-    },
+    }],
     id: '5dd04005c380a51c59b26311'
   },
   {
@@ -16,10 +17,11 @@ const blogs = [
     title: 'Halloween',
     author: 'Mathew',
     likes: 11,
-    user: {
+    user: [{
       username: 'fartface',
+      name: 'Amanda',
       id: '5dd03f94c380a51c59b26310'
-    },
+    }],
     id: '5dd43407a48ad566785600e7'
   }
 

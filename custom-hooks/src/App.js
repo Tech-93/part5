@@ -43,11 +43,12 @@ const getAll = () => {
       headers: { Authorization: token },
     }
   const response = await axios.post(baseUrl, resource, config)
+  setResources(resources.concat(response.data))
   return response.data
   }
 
   const service = {
-    create, setToken
+    create, setToken, setResources
   }
 
   return [
@@ -65,7 +66,8 @@ const App = () => {
 
   const handleNoteSubmit = (event) => {
     event.preventDefault()
-    noteService.create({ content: content.value })
+    noteService.create( { content: content.value })
+    
   }
  
   const handlePersonSubmit = (event) => {
